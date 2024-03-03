@@ -60,12 +60,12 @@ export function Chat() {
         <ToggleTheme />
       </CardHeader>
 
-      {!messages.length ? (
+      {messages.length ? (
+        <ChatList messages={messages} />
+      ) : (
         <CardContent className="h-full flex items-end">
           <QuestionTemplates setInput={setInput} />
         </CardContent>
-      ) : (
-        <ChatList messages={messages} />
       )}
 
       <CardFooter className="flex w-full flex-col z-10">
