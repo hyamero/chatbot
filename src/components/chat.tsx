@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 import {
   Card,
@@ -30,7 +30,7 @@ export function Chat() {
   const inputLength = input.trim().length;
 
   return (
-    <Card className="flex flex-col justify-between w-full max-w-xl h-[60vh] overflow-y-scroll">
+    <Card className="flex flex-col justify-between w-full max-w-xl h-[60vh] min-h-[350px] max-h-[700px] overflow-y-scroll">
       <CardHeader className="item-center flex justify-between flex-row">
         <div className="flex items-center space-x-4">
           <Avatar>

@@ -20,7 +20,7 @@ export const runtime = "edge";
 
 export default function Page() {
   return (
-    <main className="container flex items-center justify-center gap-10 h-screen flex-col ">
+    <main className="container flex py-16 items-center justify-center gap-10 min-h-screen flex-col ">
       <Header />
       <Chat />
     </main>
@@ -76,7 +76,10 @@ const Header = () => {
       <TooltipProvider>
         <Tooltip>
           <TooltipTrigger asChild>
-            <Button variant="outline" className="text-muted-foreground h-full">
+            <Button
+              variant="outline"
+              className="text-muted-foreground h-full py-3"
+            >
               <a
                 href="https://github.com/hyamero/chatbot"
                 target="_blank"
