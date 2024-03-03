@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Simple AI Chatbot Application 
+Built with Next.js, Vercel AI SDK and OpenAI
+
+---
 
 ## Getting Started
 
-First, run the development server:
+First, [clone the repository](https://github.com/hyamero/chatbot) and download it locally.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```sh
+$ git clone https://github.com/hyamero/chatbot
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Next, you'll need to set up environment variables in your repo's `.env.local` file. To start using the project, you'll just need to add your OpenAI API key, which you can find [here](https://platform.openai.com/api-keys).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```sh
+OPENAI_API_KEY="xxxxxx"
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Next, install the required packages using your preferred package manager (e.g. pnpm). Once that's done, run the development server:
 
-## Learn More
+```sh
+1. pnpm i
+2. pnpm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+Backend logic lives in `app/api/chat/route.ts`. From here, you can change the prompt and model, or add other modules and logic. This project uses `gpt-3.5-turbo` as the default.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<!-- LICENSE -->
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Distributed under the MIT License. See `LICENSE.txt` for more information.
