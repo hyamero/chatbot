@@ -1,5 +1,5 @@
 import { ToggleTheme } from "@/components/toggle-theme";
-import Chat from "./chat";
+import { Chat } from "@/components/chat";
 
 export const runtime = "edge";
 
