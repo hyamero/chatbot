@@ -23,6 +23,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { ToggleTheme } from "./toggle-theme";
+import { QuestionTemplates } from "./question-templates";
 
 export function Chat() {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
@@ -30,7 +31,7 @@ export function Chat() {
   const inputLength = input.trim().length;
 
   return (
-    <Card className="flex flex-col justify-between w-full max-w-xl h-[60vh] min-h-[350px] max-h-[700px] overflow-y-scroll">
+    <Card className="flex flex-col justify-between w-full max-w-xl h-[70vh] min-h-[350px] max-h-[700px] overflow-y-scroll">
       <CardHeader className="item-center flex justify-between flex-row">
         <div className="flex items-center space-x-4">
           <Avatar>
@@ -56,6 +57,15 @@ export function Chat() {
 
         <ToggleTheme />
       </CardHeader>
+
+      <Card className="w-3/4 mx-auto">
+        <CardHeader className="font-medium">Welcome!</CardHeader>
+        <CardContent className="text-muted-foreground text-sm">
+          Get started by selecting one of the templates below or type your
+          message in the input field.
+        </CardContent>
+      </Card>
+
       <div>
         <CardContent>
           <div className="space-y-4">
@@ -74,7 +84,8 @@ export function Chat() {
             ))}
           </div>
         </CardContent>
-        <CardFooter>
+        <CardFooter className="flex flex-col gap-5">
+          <QuestionTemplates />
           <form
             onSubmit={handleSubmit}
             className="flex w-full items-center space-x-2"
