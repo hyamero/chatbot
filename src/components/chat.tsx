@@ -3,7 +3,6 @@
 import * as React from "react";
 import { useChat } from "ai/react";
 import { Send, Bot } from "lucide-react";
-import { cn } from "@/lib/utils";
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -22,17 +21,20 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+
 import { ToggleTheme } from "./toggle-theme";
 import { QuestionTemplates } from "./question-templates";
+import { ChatList } from "./chat-list";
 
 export function Chat() {
-  const { messages, input, handleInputChange, handleSubmit } = useChat();
+  const { messages, input, handleInputChange, handleSubmit, setInput } =
+    useChat();
 
   const inputLength = input.trim().length;
 
   return (
-    <Card className="flex flex-col justify-between w-full max-w-xl h-[70vh] min-h-[350px] max-h-[700px] overflow-y-scroll">
-      <CardHeader className="item-center flex justify-between flex-row">
+    <Card className="flex flex-col  justify-between w-full max-w-xl h-[70vh] min-h-[350px] max-h-[700px] relative">
+      <CardHeader className="bg-background border-b w-full item-center rounded-t-xl flex justify-between flex-row">
         <div className="flex items-center space-x-4">
           <Avatar>
             <AvatarFallback>
@@ -58,53 +60,33 @@ export function Chat() {
         <ToggleTheme />
       </CardHeader>
 
-      <Card className="w-3/4 mx-auto">
-        <CardHeader className="font-medium">Welcome!</CardHeader>
-        <CardContent className="text-muted-foreground text-sm">
-          Get started by selecting one of the templates below or type your
-          message in the input field.
+      {!messages.length ? (
+        <CardContent className="h-full flex items-end">
+          <QuestionTemplates setInput={setInput} />
         </CardContent>
-      </Card>
+      ) : (
+        <ChatList messages={messages} />
+      )}
 
-      <div>
-        <CardContent>
-          <div className="space-y-4">
-            {messages.map((message, index) => (
-              <div
-                key={index}
-                className={cn(
-                  "flex w-max max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm whitespace-pre-wrap",
-                  message.role === "user"
-                    ? "ml-auto bg-primary text-primary-foreground"
-                    : "bg-muted"
-                )}
-              >
-                {message.content}
-              </div>
-            ))}
-          </div>
-        </CardContent>
-        <CardFooter className="flex flex-col gap-5">
-          <QuestionTemplates />
-          <form
-            onSubmit={handleSubmit}
-            className="flex w-full items-center space-x-2"
-          >
-            <Input
-              id="message"
-              placeholder="Type your message..."
-              className="flex-1"
-              autoComplete="off"
-              value={input}
-              onChange={handleInputChange}
-            />
-            <Button type="submit" size="icon" disabled={inputLength === 0}>
-              <Send className="h-4 w-4" />
-              <span className="sr-only">Send</span>
-            </Button>
-          </form>
-        </CardFooter>
-      </div>
+      <CardFooter className="flex w-full flex-col z-10">
+        <form
+          onSubmit={handleSubmit}
+          className="flex w-full items-center space-x-2"
+        >
+          <Input
+            id="message"
+            placeholder="Type your message..."
+            className="flex-1"
+            autoComplete="off"
+            value={input}
+            onChange={handleInputChange}
+          />
+          <Button type="submit" size="icon" disabled={inputLength === 0}>
+            <Send className="h-4 w-4" />
+            <span className="sr-only">Send</span>
+          </Button>
+        </form>
+      </CardFooter>
     </Card>
   );
 }
