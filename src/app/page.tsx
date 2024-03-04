@@ -21,9 +21,19 @@ export const runtime = "edge";
 export default function Page() {
   return (
     <main className="container flex py-16 items-center justify-center gap-10 min-h-screen flex-col ">
+      <GridBackground />
       <Header />
       <Chat />
     </main>
+  );
+}
+
+export function GridBackground() {
+  return (
+    <div className="h-screen w-screen absolute right-2 top-0 -z-10 dark:bg-black bg-white dark:bg-grid-white/[0.2] bg-grid-black/[0.2] flex items-center justify-center">
+      {/* Radial gradient for the container to give a faded look */}
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+    </div>
   );
 }
 

@@ -33,7 +33,7 @@ export function Chat() {
   const inputLength = input.trim().length;
 
   return (
-    <Card className="flex flex-col  justify-between w-full max-w-xl h-[70vh] min-h-[350px] max-h-[700px] relative">
+    <Card className="flex flex-col  justify-between w-full max-w-2xl h-[70vh] min-h-[350px] max-h-[700px] relative">
       <CardHeader className="bg-background border-b w-full item-center rounded-t-xl flex justify-between flex-row">
         <div className="flex items-center space-x-4">
           <Avatar>
@@ -71,7 +71,7 @@ export function Chat() {
       <CardFooter className="flex w-full flex-col z-10">
         <form
           onSubmit={handleSubmit}
-          className="flex w-full items-center space-x-2"
+          className="flex w-full max-w-lg items-center space-x-2"
         >
           <Input
             id="message"
