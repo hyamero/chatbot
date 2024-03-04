@@ -1,7 +1,8 @@
 # Simple AI Chatbot Application 
 Built with Next.js, Vercel AI SDK, Shadcn, and OpenAI
 
-<img width="1280" alt="chatbot_thumbnail" src="https://github.com/hyamero/chatbot/assets/78056869/7d0feda6-78cd-4ebc-ba31-213a96d8700b">
+![chatbot demo](https://github.com/hyamero/chatbot/assets/78056869/b082ea3c-a6a3-420a-a623-2ae4d32ca79b)
+
 
 ---
 
